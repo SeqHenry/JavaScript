@@ -1,0 +1,65 @@
+html:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src = "promise2.js"></script>
+</body>
+</html>
+
+/*********************************************************************************************/
+
+javascript:
+
+/*********************************************************************************************/
+
+   //Program to create Promise function /use of setTimeOut/arrowFunction
+
+/********************************************************************************************/
+
+
+//Array of object with string properties
+const posts =[
+    { title:'Post One',body: 'This is post one'},
+    { title:'Post Two',body: 'This is post two'}
+];
+
+//function to post array object on page using setTime out delay and arrow function
+function getPosts(){
+    setTimeout(()=>{
+        let output = '';
+        posts.forEach((post,index)=>{
+            output+=`<li>${post.title}</li>`;
+        });
+        document.body.innerHTML=output;
+    },1000);
+}
+
+//function to add object in array using Promise
+function createPost(post){
+    return new Promise((resolve,reject) =>{
+        setTimeout(()=>{
+            posts.push(post);
+
+           // const error =false;
+              const error =true;
+            if(!error){
+                resolve();
+            } else {
+                reject('Error:Something went wrong');
+            }
+            
+        },2000);
+
+    });
+    
+}
+
+createPost({ title: 'Post Three',body:'This is post three'})
+.then(getPosts)
+.catch(err=> console.log(err));
