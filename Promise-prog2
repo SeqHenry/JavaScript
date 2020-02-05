@@ -1,0 +1,97 @@
+html:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="promise.js"></script>
+</body>
+</html>
+
+
+/*************************************************************************************************/
+javascript:
+
+/******************************************************************************************************/
+
+                       //Program to create Promise
+
+/*****************************************************************************************************/
+
+//one way for Promise method
+let p =new Promise((resolve,reject)=>{
+    let a = 1+8
+    if (a==2){
+        resolve('Success')
+    }else {
+        reject('Failed')
+    }
+
+})
+
+p.then((message )=>{
+    console.log('This is in the then '+ message)
+}).catch ((message) =>{
+    console.log('This is in the catch'+ message)
+})
+
+/*****************************************************************************************************/
+//Another way of promise method
+
+const userLeft = false
+const userWatchingCatMeme =true
+
+function watchTutorialCallback( callback, errorCallback){
+    if(userLeft){
+        errorCallback({
+            name: 'user Left',
+            message:':('
+        })
+
+        }else if(userWatchingCatMeme) {
+            errorCallback({
+                name:'User Watching Cat Meme',
+                message:'WebDevSimplified < Cat'
+            })
+        } else {
+            callback('Thumbs up and subscribe')
+        }
+    }
+watchTutorialCallback((message)=>{
+    console.log('Success:'+message)
+},(error)=>{
+    console.log(error.name + ' '+ error.message)
+})
+
+
+/*********************************************************************************************************/
+//Various ways for call function
+//
+function Person(name) {
+    let secret ='secre!'
+    this.name = name
+    this.setName = function(newName) { this.name = newName }
+    this.setNameToFoo = function() { this.name = foo }
+    this.getSecret = function() { return secret }
+ }
+  
+ let a = new Person('Max')
+  
+ console.log(a.name)//> “Max”
+
+ a.setName('Oliver')
+ console.log(a.name)//> “Oliver”
+
+ a.setNameToFoo() //> ERROR: foo is undefined
+  
+ var foo = 'Foo'
+ a.setNameToFoo()
+ console.log(a.name) //> “Foo”
+  
+ console.log(a.secret) //> undefined
+ a.getSecret() //> “Secret!”
+
