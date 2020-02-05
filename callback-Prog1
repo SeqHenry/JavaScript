@@ -1,0 +1,52 @@
+html:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src= "callback2.js"></script>
+</body>
+</html>
+
+/************************************************************************************/
+
+javascript:
+
+/************************************************************************************/
+
+   //Program to create function callback/use of setTimeOut/arrowFunction
+
+/***********************************************************************************/
+
+
+//Array of object with string properties
+const posts =[
+    { title:'Post One',body: 'This is post one'},
+    { title:'Post Two',body: 'This is post two'}
+];
+
+//function to post array object on page using setTime out delay and arrow function
+function getPosts(){
+    setTimeout(()=>{
+        let output = '';
+        posts.forEach((post,index)=>{
+            output+=`<li>${post.title}</li>`;
+        });
+        document.body.innerHTML=output;
+    },1000);
+}
+
+//function to add object in array using callback function
+function createPost(post,callback){
+    setTimeout(()=>{
+        posts.push(post);callback();
+    },2000);
+}
+//getPosts();
+
+//function call to add object with callback
+createPost({ title: 'Post Three',body:'This is post three' },getPosts);
