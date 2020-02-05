@@ -1,0 +1,71 @@
+
+
+html:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src = "callback.js">
+        </script>
+    
+</body>
+</html>
+
+/**********************************************************************************************/
+
+javascript:
+
+/***************************************************************************************************/
+
+                                  //Second Program callbacks
+
+/**************************************************************************************************/
+
+setTimeout(hello,3000,'Bob')//In built callback function will give output after 3sec 
+
+//Array of string names  
+let names =['Ings','Tom','Mattias','Carlos'];
+names.forEach(hello);//calling hello function for each name
+
+function hello(nm){
+    console.log('hello',nm);
+}
+//Another callback function 
+function doThing(other){
+    let x =7;
+    let name = 'Steve';
+    other(name);
+}
+doThing(hello);
+
+
+//Another method for callback 
+//An array of objects and passing array and function as callback
+
+let students =[{name:"Mary",score:90,school:"East"},
+               {name:"James",score:100,school:"East"},
+               {name:"Steve",score:40,school:"east"},
+               {name:"Gabe",score:90,school:"South"},
+               {name:"Rachel",score:85,school:"West"},
+               {name:"Rochelle",score:94,school:"east"}];
+
+let processStudents=function(data,callback){
+    for(let i=0;i<data.length;i++){
+        if(data[i].school.toLowerCase()==="east"){
+            if(typeof callback ==="function"){
+                callback(data[i]);
+            }
+        };
+    }
+}
+
+processStudents(students,function(obj){
+    if(obj.score>60){
+        console.log(obj.name+" "+"passed.");
+    }
+});
