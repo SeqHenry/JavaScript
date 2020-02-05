@@ -1,0 +1,48 @@
+html:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+  <h1>Hello World</h1>  
+  <script src="index.js">
+      //This is my first java script code
+      //console.log('Hello World');
+  </script>
+</body>
+</html>  
+
+/**************************************************************************/
+
+javascript:
+
+/**************************************************************************/
+
+                             //Hello World
+
+/**************************************************************************/
+console.log('Hello World');
+
+let firstName='Mo';      //String literal
+let lastName='Salah';
+let age=40;              //number literal
+let isApproved = false;  //boolean literal 
+let variable=undefined;  //undefined literal
+let selectedColor=null;  //null literal
+
+console.log(firstName);
+console.log(lastName);
+
+let interestRate =0.3;
+console.log(interestRate);
+
+const compoundRate=1.2;  //constant variable
+console.log(compoundRate);
+
+
+
+
