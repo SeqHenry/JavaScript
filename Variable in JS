@@ -1,0 +1,98 @@
+html:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src ="variableScope.js"></script>
+</body>
+</html>
+
+/******************************************************************************************/
+javascript:
+
+/*******************************************************************************************************************/
+
+                            //Program for variable scope /local Scope/Global Scope//
+
+/*******************************************************************************************************************/
+
+
+/****************************************local variable scope*******************************************************/
+var name = "Richard";
+
+showName();
+function showName () {
+    var name = "Jack"; // local variable; only accessible in this showName function
+    console.log (name); // Jack
+}
+console.log (name); // Richard: the global variable
+showName();
+
+// If you don't declare your local variables with the var keyword, they are part of the global scope
+
+var nameNext = "Michael Jackson";
+function showCelebrityName () {
+    console.log (nameNext);
+}
+
+function showOrdinaryPersonName () {    
+    nameNext = "Johnny Evers";
+    console.log (nameNext);
+}
+showCelebrityName (); // Michael Jackson
+
+// name is not a local variable, it simply changes the global name variable
+showOrdinaryPersonName (); // Johnny Evers
+
+// The global variable is now Johnny Evers, not the celebrity name anymore
+showCelebrityName (); // Johnny Evers
+
+
+/*********************************************************************************************************************/
+
+                                       //Global Variable Scope
+
+/********************************************************************************************************************/
+// To declare a global variable, you could do any of the following:
+var myName = "Richard";
+
+// or even
+firstName = "Richard";
+
+// or 
+var name; //
+name;
+console.log(myName); // Richard;
+
+/*********************************************************************************************************************/
+
+                         //Function Declaration Overrides Variable Declaration When Hoisted
+                    
+/*********************************************************************************************************************/
+
+// Both the variable and the function are named myName
+var myFirstName1;
+function myFirstName1 () {
+console.log ("Rich");
+}
+
+// The function declaration overrides the variable name
+console.log(typeof myFirstName1); // function
+
+
+ // But in this example, the variable assignment overrides the function declaration
+ var myName2 = "Richard"; 
+
+ function myName2 () {
+ console.log ("Rich");
+ }
+ 
+ // The variable assignment (initialization) that overrides the function declaration.
+ console.log(typeof myName2); // string 
+
+
