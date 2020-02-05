@@ -1,0 +1,130 @@
+html:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src= "jsassgn.js"></script>
+</body>
+</html>
+
+/*************************************************************************************************************/
+javascript:
+
+/*1)To define U1,U2 and U3 user object with property(name,age,height) */
+
+/*************************************************************************************************************/
+function Person(name, age, height) {
+    // property definitions
+      this.name =name
+      this.age = age;
+      this.height = height;
+  }
+  
+   //Creating object instances from the above object
+      let U1 =new Person('Robert',27,5.8);
+      let U2 =new Person('Harry',30,6);
+      let U3 =new Person('William',34,6.2);
+
+
+//To get output on console of each oject instances
+  console.log(U1.name+' is'+' '+U1.age+'years old and his height is '+U1.height+' ft'+"\n")
+  console.log(U2.name+' is'+' '+U2.age+'years old and his height is '+U2.height+' ft'+"\n")
+
+
+/*************************************************************************************************************/
+
+/* 2)To define empty array,push U1,U2 and U3 and log the array */
+ 
+/*************************************************************************************************************/
+  let userArray=[];     // Declaring an empty array
+  
+  userArray.push(U1)    //Pushing object U1,U2,U3 on the array.
+  userArray.push(U2)
+  userArray.push(U3)
+
+/* Printing individual element of array on console*/
+  console.log(userArray[0])
+  console.log(userArray[1])
+  console.log(userArray[2])
+
+/*Printing names of person in the object instances*/
+  console.log('The person names in the array are '+userArray[0].name+','+userArray[1].name+','+userArray[2].name+"\n")
+
+/**printing the array on console**/
+  console.log(userArray)
+
+/*****************************************************************************************************/
+
+/*To create userCityMap with key as user name and value as city*/
+
+/*****************************************************************************************************/
+/*function userCityMap()
+
+userCityMap = new Map ([["city1","city2","city3"],[["pune",110],["Hyderabad",111],["Bangalore",112]]]);
+console.log(Map.get(city1))*/
+
+let userCityMap = new Map([
+    ['city1' ,'Pune'],
+    ['city2','Bangalore'],
+    ['city3' ,'Mumbai']
+  ])
+  
+userCityMap.forEach(function(value, key) {
+console.log(key + ' = ' + value)})
+ 
+
+for(let i =0;i<userArray.length;i++){
+console.log(userArray[i]);
+console.log(userCityMap)
+}
+
+    
+    //userArray.forEach((a)=>{a.city=userCityMap.forEach((key)=>{return userCityMap.values()})})
+    
+/******************************************************************************************************/
+
+/* 4)Iterate over the above array of users and add city property in each user Object and log the array.
+
+
+/******************************************************************************************************/
+//userArray.forEach((a)=>{a.city=userCityMap.values()})
+
+let z =0
+    for (const city of userCityMap) {
+      userArray[z].city = city
+      z++
+    }
+    console.log(userArray)
+/*****************************************************************************************************/
+
+/*5)Iterate over the users array and print name and city of the user.
+
+/*****************************************************************************************************/
+for(let i =0;i<userArray.length;i++){
+console.log(userArray[i].name+':'+userArray[i].city+"\n");
+
+}
+
+
+/*****************************************************************************************************/
+
+/*6)Create the user map with name as key and userObject as value.  Log the user map.
+
+/*****************************************************************************************************/
+    
+let user=[['U1',U1],['U2',U2],['U3',U3]]
+let userCityMap1=new Map(user)
+console.log(userCityMap1)
+
+
+/***************************************************************************************************/
+
+/*7)Print U1 object using user map.
+
+/****************************************************************************************************/
+console.log(userCityMap1.get('U1'))
