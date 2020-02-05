@@ -1,0 +1,29 @@
+html:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src = "promiseall.js"></script>
+</body>
+</html>
+
+/******************************************************************************************/
+javascript:
+
+//To implement promise all function
+//PromiseAll takes care that all promises are completed together waiting untill longest promise.
+const promise1 = Promise.resolve('Hello World');
+const promise2 = 10;
+const promise3 = new Promise((resolve,reject)=>
+setTimeout(resolve,2000,'Goodbye')); 
+
+//While using fetch keyword we need to use .then also
+const promise4 = fetch('https://jsonplaceholder.typicode.com/users').then(res => res.json());
+
+Promise.all([promise1,promise2,promise3,promise4]).then(values => console.log(values));
+
