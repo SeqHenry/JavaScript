@@ -1,0 +1,112 @@
+html:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src ="asynawait.js"></script>
+</body>
+</html>
+
+/*******************************************************************************************/
+javascript:
+/************************************************************************************/
+
+                     //Program to create Async-await function //
+
+/************************************************************************************/
+
+
+//Array of object with string properties
+const posts =[
+    { title:'Post One',body: 'This is post one'},
+    { title:'Post Two',body: 'This is post two'}
+];
+
+//function to post array object on page using setTime out delay and arrow function
+function getPosts(){
+    setTimeout(()=>{
+        let output = '';
+        posts.forEach((post,index)=>{
+            output+=`<li>${post.title}</li>`;
+        });
+        document.body.innerHTML=output;
+    },1000);
+}
+
+//function to add object in array using Promise
+function createPost(post){
+    return new Promise((resolve,reject) =>{
+        setTimeout(()=>{
+            posts.push(post);
+
+            const error =false;
+              //const error =true;
+            if(!error){
+                resolve();
+            } else {
+                reject('Error:Something went wrong');
+            }
+            
+        },2000);
+
+    });
+    
+}
+
+//Asyn/Await
+async function init(){
+  await createPost({ title: 'Post Three',body:'This is post three'}) 
+
+  getPosts()
+}
+
+init();
+
+async function fetchUsers(){
+    const res= await fetch('https://jsonplaceholder.typicode.com/users');
+    const data = await res.json();
+    console.log(data);
+}
+fetchUsers();
+
+async function f() {
+
+    let promise = new Promise((resolve, reject) => {
+      setTimeout(() => resolve("done!"), 1000)
+    });
+  
+    let result = await promise; // wait until the promise resolves (*)
+  
+    alert(result); // "done!"
+  }
+  
+  f();
+
+  //Async class methods
+  //To declare an async class method, just prepend it with async:
+
+  class Waiter {
+    async wait() {
+      return await Promise.resolve(1);
+    }
+  }
+  
+  new Waiter()
+    .wait()
+    .then(alert); // 1
+
+    /*
+    async/await and promise.then/catch
+
+    When we use async/await, we rarely need .then, because await handles the waiting for us. And we can use a regular try..catch instead of .catch. That’s usually (but not always) more convenient.
+
+    But at the top level of the code, when we’re outside any async function, we’re syntactically unable to use await, so it’s a normal practice to add .then/catch to handle the final result or falling-through error, like in the line (*) of the example above.
+
+    */
+
+
