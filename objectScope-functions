@@ -1,0 +1,121 @@
+html:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src= "index2.js"></script>
+    
+</body>
+</html>
+
+/***************************************************************************/
+
+javascript:
+/***********************************************************************************************/
+
+//Program for creation of object,object scope,function implementation,passing params to function
+
+/***********************************************************************************************/
+
+
+let person={      //Creation of person object.
+    name:'Mosh',
+    age:30
+};
+console.log(person);
+
+//object dot notation
+person.name='John';
+
+//object Bracket notation
+person['name']='Diana';
+console.log(person.name);
+
+//Create array in js and manipulation of array items
+let selectedColors = ['red','blue'];
+selectedColors[2]= 'green';
+console.log(selectedColors);
+selectedColors[2] = 1;
+console.log(selectedColors.length);
+
+
+//Js function block create
+function greeting()
+{
+    console.log('Hello world');
+}
+
+
+greeting();    //calling function
+
+//Create second function
+function greet(name)
+{
+    console.log('Hello'+' '+ name);
+}
+
+greet('Joel');
+greet('Williams');
+
+
+//Third function which returns a output
+//calculating a value
+function square(number)
+{
+    return number * number;
+}
+let number = square(2);
+console.log(number);
+console.log(square(77));
+
+// The primitive data type String is stored as a value
+let person2 = "Kobe";  
+let anotherPerson = person2; // anotherPerson = the value of person
+person2 = "Bryant";          // value of person changed
+
+console.log(anotherPerson);  // Kobe
+console.log(person2);        // Bryant
+
+
+//The reference data type string is stored as a value
+let person3 = {name: "Kobe"};
+let anotherPerson1 = person3;
+person3.name = "Bryant";
+
+console.log(anotherPerson1.name); // Bryant
+console.log(person3.name); // Bryant
+
+
+//Creating function taking string parameters
+//Use of this keyword
+function Fruit (theColor, theSweetness, theFruitName, theNativeToLand) {
+
+    this.color = theColor;
+    this.sweetness = theSweetness;
+    this.fruitName = theFruitName;
+    this.nativeToLand = theNativeToLand;
+
+    this.showName = function () {                //function inside another function
+        console.log("This is a " + this.fruitName);
+    }
+
+    this.nativeTo = function () {               //iterating through the array and printing the items
+    this.nativeToLand.forEach(function (eachCountry)  {
+       console.log("Grown in:" + eachCountry);
+        });
+    }
+
+
+}
+
+//Creation of object instance and passing strins,number and an array of strings
+var mangoFruit = new Fruit ("Yellow", 8, "Mango", ["South America", "Central America", "West Africa"]);
+mangoFruit.showName(); // This is a Mango.
+mangoFruit.nativeTo();
+
+
