@@ -1,0 +1,51 @@
+html:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src ="callStack.js"></script>
+</body>
+</html>
+
+
+/***********************************************************************************************/
+javascript:
+/**********************************************************************************************/
+
+                             //Program to showcase JS callstack
+
+/**********************************************************************************************/
+
+function ceo(){
+console.log("I am in ceo")    
+cto ()
+}
+
+function cto(){
+    console.log("I am in cto")
+    vpengg()
+}
+
+function vpengg(){
+    console.log("I'm in vpengg")
+    techlead()
+}
+
+function techlead(){
+    console.log("I'm in techlead")
+    developer()
+}
+
+function developer(){
+    console.log("I'm in developer")
+    throw new console.error("Something went headwire"); //throwing an error to show call stack in console
+    
+}
+
+ceo()
