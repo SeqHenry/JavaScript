@@ -1,0 +1,28 @@
+/*********************************************************************************/
+
+            //Program for Primitive value and reference distiction
+
+/*********************************************************************************/
+
+//pass by value
+
+let number =10;
+
+function increase (number){
+    number++;
+}
+
+increase(number);
+console.log(number);//10
+
+
+//pass by reference
+
+let obj = {value:10};
+
+function increase(obj){
+    obj.value++;
+}
+
+increase(obj);
+console.log(obj);//11
